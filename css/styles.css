@@ -627,30 +627,39 @@ body[data-theme='about'] .bar__title { color: var(--lilac); }
   .final__offer .final__row { margin-bottom: 28px; }
 }
 
-/* старт на десктопе: текст слева внизу, иллюстрация справа во всю высоту.
+/* старт на десктопе: логотип сверху, текст слева и иллюстрация справа — по центру окна по высоте.
    Только в ландшафте — на портретном планшете шире 1024 остается вертикальная компоновка */
 @media (min-width: 1024px) and (orientation: landscape), (min-width: 1280px) {
   .start {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
-    align-items: stretch;
+    grid-template-rows: auto 1fr;
     padding-bottom: 0;
     text-align: left;
   }
-  .start__copy { align-items: flex-start; padding: clamp(24px, 5svh, 50px) 0 max(24px, 9svh); }
-  .start__logo { width: 257px; margin: 0; }
-  .start__text { align-items: flex-start; max-width: 620px; margin-top: auto; padding: clamp(20px, 5svh, 40px) 24px 0 0; }
+  /* логотип и текст — отдельные ячейки сетки, чтобы текст центрировался под логотипом */
+  .start__copy { display: contents; }
+  .start__logo { grid-column: 1; grid-row: 1; width: 257px; margin: clamp(24px, 5svh, 50px) 0 0; }
+  .start__text {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: center;
+    align-items: flex-start;
+    max-width: 620px;
+    padding: 24px 24px 24px 0;
+  }
   .start__title { font-size: clamp(46px, calc(1.69px + 4.327vw), 64px); }
   .start__subtitle { margin-top: 10px; font-size: clamp(18px, calc(13.08px + .481vw), 20px); }
   .start__body { max-width: 440px; margin-top: 15px; font-size: clamp(18px, calc(13.08px + .481vw), 20px); }
   .btn--start { width: 287px; margin-top: 17px; }
   .start__art {
-    align-self: end;
+    grid-column: 2;
+    grid-row: 1 / 3;
+    align-self: center;
     /* текстовой колонке оставляем не меньше 540 px, чтобы заголовок держался в две строки */
     width: min(56vw, 868px, calc(91svh * .929), calc(100vw - 540px - var(--pad)), calc(var(--content) + var(--pad) - 540px));
-    margin: 0 calc(-1 * var(--pad)) 3svh 0;
+    margin: 0 calc(-1 * var(--pad)) 0 0;
   }
-
 }
 
 @media (prefers-reduced-motion: reduce) {
