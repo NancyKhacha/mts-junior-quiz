@@ -93,7 +93,7 @@ strong { font-weight: 700; }
   align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
-  padding: 14px 0 0 10px;
+  padding: 12px 0 0 10px;
 }
 .bar__title {
   width: 10em;
@@ -109,6 +109,7 @@ body[data-theme='about'] .bar__title { color: var(--lilac); }
 
 .actions { display: flex; }
 .actions--center { justify-content: center; }
+
 
 .btn {
   display: inline-flex;
@@ -148,59 +149,59 @@ body[data-theme='about'] .bar__title { color: var(--lilac); }
 }
 .start__subtitle { margin-top: 6px; font: 500 20px/1.2 var(--wide); text-wrap: balance; }
 .start__body { margin-top: 11px; font: 400 20px/1.2 var(--compact); color: #000; text-wrap: pretty; }
-.btn--start { width: 100%; margin-top: 40px; letter-spacing: .24em; }
+.btn--start { width: 100%; margin-top: 22px; letter-spacing: .24em; }
 .start__art { display: block; width: calc(100% + 2 * var(--pad)); margin: 11px calc(-1 * var(--pad)) 0; }
 .start__art img { width: 100%; }
 
 /* ---------- как все устроено ---------- */
+/* на телефоне экран собран плотно: кнопка «К первому вопросу» должна быть видна без скролла
+   в Safari с панелями (375×635 у iPhone 11 Pro, 393×659 у iPhone 15 Pro) */
 
 .about__stage {
-  --blue-w: 150px;
+  --blue-w: 100px;
   position: relative;
   width: 100%;
-  margin: 91px auto 0;
+  margin: 57px auto 0;
 }
 .about__card {
   position: relative;
-  padding: 44px 25px 66px;
+  padding: 28px 16px 38px;
   border-radius: 10px;
   background: var(--white);
   color: var(--navy);
   text-align: center;
 }
 .about__title { font: 700 28px/1 var(--wide); color: var(--purple-title); text-wrap: balance; }
-.about__card p { margin-top: 12px; font: 400 16px/1.4 var(--compact); text-wrap: pretty; }
-.about__card p + p { margin-top: 1.4em; }
+.about__card p { margin-top: 10px; font: 400 15px/1.35 var(--compact); text-wrap: pretty; }
+.about__card p + p { margin-top: 10px; }
 .about__card .deco, .about__photo { position: absolute; }
 .about__green, .about__yellow { display: none; }
-.about__blue { width: var(--blue-w); left: 50%; bottom: calc(100% - 28px); translate: -50% 0; }
-.about__fire { width: 92px; left: -6px; top: calc(100% - 59px); }
-.about__photo { width: 80px; height: 80px; right: 31px; top: calc(100% - 40px); border-radius: 50%; object-fit: cover; }
+.about__blue { width: var(--blue-w); left: 50%; bottom: calc(100% - 24px); translate: -50% 0; }
+.about__fire { width: 68px; left: -6px; top: calc(100% - 34px); }
+.about__photo { width: 76px; height: 76px; right: 18px; top: calc(100% - 32px); border-radius: 50%; object-fit: cover; }
 .about__note {
   max-width: 330px;
-  margin: 54px auto 0;
-  font: 500 16px/1.4 var(--compact);
+  margin: 50px auto 0;
+  font: 500 15px/1.35 var(--compact);
   text-align: center;
   text-wrap: balance;
 }
-.about .actions { margin-top: 34px; }
+.about .actions { margin-top: 16px; }
 .btn--about { width: 100%; }
 
 /* ---------- вопрос и ответ ---------- */
 
-.quiz__grid { display: flex; flex-direction: column; margin-top: 35px; }
-.quiz--answered .quiz__grid { margin-top: 33px; }
+.quiz__grid { display: flex; flex-direction: column; margin-top: 20px; }
+.quiz--answered .quiz__grid { margin-top: 22px; }
 .quiz__side { order: -1; }
 .quiz--answered .quiz__side { order: 0; }
 
 .quiz__art { overflow: hidden; aspect-ratio: 1; border-radius: 10px; background: rgba(255, 255, 255, .25); }
 .quiz__art img { width: 100%; height: 100%; object-fit: cover; }
 
-.quiz__main { margin-top: 22px; }
+.quiz__main { margin-top: 18px; }
 .quiz--answered .quiz__main { margin-top: 0; }
-.quiz__head { display: block; }
 .quiz__heading { padding: 0 10px; text-align: center; }
-.quiz__counter { margin-bottom: 6px; font: 500 14px/1.25 var(--compact); color: var(--blue-light); }
 .quiz__question { font: 400 20px/1.2 var(--compact); text-wrap: pretty; }
 .quiz__prompt { display: block; font-weight: 500; }
 .quiz__mascot { display: none; }
@@ -228,16 +229,16 @@ body[data-theme='about'] .bar__title { color: var(--lilac); }
   transition: opacity .15s ease;
 }
 
-.options { margin-top: 20px; padding: 0; list-style: none; }
-.options li { padding: 4px 0; }
+.options { margin-top: 14px; padding: 0; list-style: none; }
+.options li { padding: 3px 0; }
 .options li + li { border-top: 1px solid var(--blue-light); }
 .option {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   width: 100%;
-  min-height: 60px;
-  padding: 10px 15px;
+  min-height: 52px;
+  padding: 8px 14px 8px 12px;
   border-radius: 30px;
   text-align: left;
   font: 400 16px/1.25 var(--compact);
@@ -254,15 +255,15 @@ body[data-theme='about'] .bar__title { color: var(--lilac); }
 .option:focus-visible .chip, .option:active .chip { background: var(--white); }
 .option:focus-visible .chip::after, .option:active .chip::after { opacity: 1; }
 
-.results { display: grid; gap: 9px; margin-top: 25px; padding: 0; list-style: none; }
+.results { display: grid; gap: 8px; margin-top: 18px; padding: 0; list-style: none; }
 .result {
   position: relative;
   display: grid;
   grid-template-columns: 28px minmax(0, 1fr) auto;
   align-items: center;
-  column-gap: 10px;
-  min-height: 60px;
-  padding: 8px 15px;
+  column-gap: 8px;
+  min-height: 52px;
+  padding: 6px 14px 6px 12px;
   overflow: hidden;
   border: 1px solid var(--blue-dark);
   border-radius: 30px;
@@ -278,19 +279,18 @@ body[data-theme='about'] .bar__title { color: var(--lilac); }
 }
 @keyframes bar-grow { from { width: 0; } }
 .result__label { font: 400 clamp(15px, 4.1vw, 16px)/1.25 var(--compact); text-wrap: pretty; }
-.result__pct { font: 500 clamp(22px, 7.18vw, 28px)/1.2 var(--wide); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.result__pct { font: 500 clamp(18px, 5.13vw, 20px)/1.2 var(--wide); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .result--picked { border-color: var(--white); background: var(--white); color: var(--navy); }
 .result--picked .result__bar { background: var(--blue-light); }
-.result--picked .result__label { font-weight: 500; }
 .result--picked .result__pct { color: var(--red-text); }
 .result--picked .chip { background: var(--white); }
 .result--picked .chip::after { opacity: 1; background: var(--red-text); }
 
 .quiz__side { display: flex; flex-direction: column; gap: 10px; }
-.quiz--answered .quiz__side { margin-top: 28px; }
+.quiz--answered .quiz__side { margin-top: 20px; }
 
 .comment {
-  padding: 20px;
+  padding: 18px 18px 20px;
   border-radius: 10px;
   background: var(--blue-light);
   color: var(--navy);
@@ -298,8 +298,8 @@ body[data-theme='about'] .bar__title { color: var(--lilac); }
 }
 .comment p { text-wrap: pretty; }
 .comment p + p { margin-top: 8px; }
-.comment__author { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
-.comment__author img { flex: none; width: 62px; height: 62px; border-radius: 50%; object-fit: cover; }
+.comment__author { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+.comment__author img { flex: none; width: 52px; height: 52px; border-radius: 50%; object-fit: cover; }
 .comment__author p { font-size: 14px; line-height: 1.4; }
 
 .promo {
@@ -307,8 +307,8 @@ body[data-theme='about'] .bar__title { color: var(--lilac); }
   --icon-ratio: 1;
   --icon-top: -13px;
   --icon-right: 25px;
-  --pad-y: 31px;
-  --pad-x: 24px;
+  --pad-y: 24px;
+  --pad-x: 20px;
   position: relative;
   padding: var(--pad-y) var(--pad-x);
   border-radius: 20px;
@@ -333,12 +333,12 @@ body[data-theme='about'] .bar__title { color: var(--lilac); }
 }
 .promo p { text-wrap: pretty; }
 
-.quiz__next { margin-top: 9px; }
+.quiz__next { margin-top: 14px; }
 .btn--next { width: 100%; }
 
 /* ---------- финал ---------- */
 
-.final__grid { display: flex; flex-direction: column; margin-top: 15px; }
+.final__grid { display: flex; flex-direction: column; margin-top: 12px; }
 .final__score {
   --mascot-w: clamp(100px, calc(100vw - 241px), 149px);
   display: grid;
@@ -351,8 +351,8 @@ body[data-theme='about'] .bar__title { color: var(--lilac); }
 .final__num { grid-area: num; align-self: end; font: 700 clamp(32px, 10.26vw, 40px)/1.2 var(--wide); }
 .final__heading { grid-area: heading; align-self: start; font: 500 clamp(14px, 4.1vw, 16px)/1.4 var(--wide); text-wrap: pretty; }
 .final__story {
-  margin-top: 28px;
-  padding: 20px;
+  margin-top: 20px;
+  padding: 18px 18px 20px;
   border-radius: 10px;
   background: var(--white);
   color: var(--navy);
@@ -363,12 +363,12 @@ body[data-theme='about'] .bar__title { color: var(--lilac); }
 
 .final__offer {
   --offer-px: 20px;
-  --fire-w: clamp(84px, 28.2vw, 110px);
+  --fire-w: clamp(76px, 24vw, 96px);
   --fire-out: 2px;
   display: flex;
   flex-direction: column;
   margin-top: 10px;
-  padding: 35px var(--offer-px) 36px;
+  padding: 24px var(--offer-px) 26px;
   border-radius: 20px;
   background: var(--purple);
 }
@@ -376,13 +376,18 @@ body[data-theme='about'] .bar__title { color: var(--lilac); }
 .final__row {
   display: grid;
   grid-template-columns: minmax(0, 1fr) calc(var(--fire-w) - var(--offer-px) - var(--fire-out));
-  grid-template-areas: 'body body' 'slogan fire';
+  grid-template-areas: 'body fire' 'slogan fire';
   align-items: center;
   column-gap: 8px;
-  margin-top: 15px;
+  margin-top: 12px;
 }
-.final__body { grid-area: body; font: 400 clamp(17px, 5.13vw, 20px)/1.4 var(--wide); text-wrap: pretty; }
-.final__slogan { grid-area: slogan; font: 400 clamp(17px, 5.13vw, 20px)/1.4 var(--wide); }
+.final__body { grid-area: body; align-self: end; font: 400 clamp(16px, 4.36vw, 17px)/1.35 var(--wide); text-wrap: pretty; }
+.final__slogan { grid-area: slogan; align-self: start; margin-top: 8px; font: 400 clamp(16px, 4.36vw, 17px)/1.35 var(--wide); }
+/* на самых узких экранах перечислению нужна вся ширина — огонек уходит к слогану */
+@media (max-width: 359px) {
+  .final__row { grid-template-areas: 'body body' 'slogan fire'; }
+  .final__slogan { align-self: center; }
+}
 .final__fire {
   grid-area: fire;
   width: var(--fire-w);
@@ -394,8 +399,8 @@ body[data-theme='about'] .bar__title { color: var(--lilac); }
   align-self: center;
   width: 100%;
   max-width: 323px;
-  margin-top: 28px;
-  padding: 20px;
+  margin-top: 18px;
+  padding: 18px 20px;
   border-radius: 20px;
   background: var(--white);
   color: var(--red-text);
@@ -405,7 +410,7 @@ body[data-theme='about'] .bar__title { color: var(--lilac); }
 .final__sticker strong { display: block; font: 700 clamp(20px, 6.15vw, 24px)/1.25 var(--compact); }
 .final__sticker > span { display: block; font: 500 clamp(17px, 5.13vw, 20px)/1.25 var(--compact); text-wrap: balance; }
 
-.final__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 21px; }
+.final__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
 .final__actions .btn { flex: 1 1 100%; }
 .btn--tariff { letter-spacing: 0; text-transform: none; }
 
@@ -423,17 +428,18 @@ body[data-theme='about'] .bar__title { color: var(--lilac); }
   .start__title { font-size: 56px; }
   .start__subtitle { margin-top: 12px; font-size: 22px; }
   .start__body { margin-top: 16px; }
-  .btn--start { width: 320px; margin-top: 36px; }
+  .btn--start { width: 320px; margin-top: 28px; }
   .start__art { width: min(100%, 600px); margin: 24px auto 0; }
 
   .about__stage { --blue-w: 190px; max-width: 600px; margin-top: 136px; }
   .about__card { padding: 52px 48px 84px; border-radius: 20px; }
   .about__title { font-size: 36px; }
-  .about__card p { margin-top: 20px; font-size: 18px; }
+  .about__card p { margin-top: 20px; font-size: 18px; line-height: 1.4; }
+  .about__card p + p { margin-top: 1.4em; }
   .about__blue { bottom: calc(100% - 34px); }
   .about__fire { width: 120px; left: calc(-1 * min(40px, var(--pad) - 8px)); top: calc(100% - 72px); }
   .about__photo { width: 104px; height: 104px; right: 40px; top: calc(100% - 52px); }
-  .about__note { max-width: 520px; margin-top: 72px; font-size: 18px; }
+  .about__note { max-width: 520px; margin-top: 72px; font-size: 18px; line-height: 1.4; }
   .about .actions { margin-top: 32px; }
   .btn--about { width: 360px; }
 
@@ -441,32 +447,31 @@ body[data-theme='about'] .bar__title { color: var(--lilac); }
   .quiz__grid, .quiz--answered .quiz__grid { width: 100%; max-width: 640px; margin: auto auto 0; padding-top: 40px; }
   .quiz:not(.quiz--answered) .quiz__grid { margin-bottom: auto; padding-bottom: 32px; }
   .quiz__art { width: min(100%, 440px); margin: 0 auto; border-radius: 16px; }
-  .quiz__main { margin-top: 32px; }
-  .quiz__heading { padding: 0; text-align: left; }
-  /* вопрос под иллюстрацией — по центру, как в мобильном макете; в ответе рядом пушистик */
-  .quiz:not(.quiz--answered) .quiz__heading { text-align: center; }
-  .quiz__counter { margin-bottom: 8px; font-size: 16px; }
+  .quiz__main { margin-top: 24px; }
+  .quiz__heading { padding: 0; }
   .quiz__question { font-size: 24px; }
-  .quiz--answered .quiz__head {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 120px;
-    align-items: start;
-    column-gap: 24px;
-  }
-  .quiz__mascot--head { display: block; width: 120px; margin-top: -8px; }
-  .options { margin-top: 28px; }
-  .option { min-height: 64px; gap: 14px; padding: 10px 20px; font-size: 18px; border-radius: 34px; }
-  .results { gap: 10px; margin-top: 28px; }
-  .result { min-height: 64px; column-gap: 14px; padding: 8px 20px; border-radius: 34px; }
+  .options { margin-top: 20px; }
+  .option { min-height: 56px; gap: 14px; padding: 8px 20px; font-size: 18px; border-radius: 34px; }
+  .results { gap: 8px; margin-top: 22px; }
+  .result { min-height: 56px; column-gap: 14px; padding: 6px 20px; border-radius: 34px; }
   .result__label { font-size: 18px; }
-  .result__pct { font-size: 32px; }
-  .quiz--answered .quiz__side { gap: 16px; margin-top: 32px; }
-  .comment { padding: 26px 28px 28px; border-radius: 20px; background: var(--white); font-size: 17px; }
+  .result__pct { font-size: 24px; }
+  .quiz--answered .quiz__side { gap: 14px; margin-top: 24px; }
+  .comment { padding: 24px 28px 26px; border-radius: 20px; background: var(--white); font-size: 17px; }
   .comment__author img { width: 72px; height: 72px; }
   .comment__author p { font-size: 15px; }
-  .promo { --icon: 84px; --icon-top: -30px; --icon-right: 18px; --pad-y: 30px; --pad-x: 30px; font-size: 17px; }
-  .quiz__next { margin: 32px 0 auto; }
-  .btn--next { width: 287px; }
+  .promo { --icon: 84px; --icon-top: -30px; --icon-right: 18px; --pad-y: 26px; --pad-x: 28px; font-size: 17px; }
+  .quiz__next { margin: 28px 0 auto; }
+  .btn--next { width: auto; min-width: 287px; }
+  /* пушистик вопроса стоит слева от кнопки «Дальше». Отрицательные поля: строку по высоте не раздвигает,
+     ширину не занимает — кнопка остается по центру */
+  .quiz__mascot--next {
+    --w: 72px;
+    display: block;
+    align-self: flex-end;
+    width: var(--w);
+    margin: -200px 14px -8px calc(-1 * (var(--w) + 14px));
+  }
 
   .final__grid { width: 100%; max-width: 640px; margin: auto; padding: 32px 0 8px; }
   .final__score { grid-template-columns: 180px minmax(0, 1fr); column-gap: 24px; }
@@ -474,11 +479,11 @@ body[data-theme='about'] .bar__title { color: var(--lilac); }
   .final__num { font-size: 64px; line-height: 1.1; }
   .final__heading { font-size: 22px; line-height: 1.3; }
   .final__story { padding: 28px; border-radius: 20px; font-size: 17px; }
-  .final__offer { --offer-px: 32px; --fire-w: 140px; --fire-out: 16px; margin-top: 16px; padding-top: 40px; padding-bottom: 48px; }
+  .final__offer { --offer-px: 32px; --fire-w: 120px; --fire-out: 16px; margin-top: 16px; padding-top: 32px; padding-bottom: 36px; }
   .final__lead { font-size: 26px; line-height: 1.25; }
-  .final__body, .final__slogan { font-size: 22px; }
-  .final__row { margin-top: 20px; }
-  .final__sticker { max-width: 440px; margin-top: 32px; rotate: 2deg; }
+  .final__body, .final__slogan { font-size: 19px; }
+  .final__row { margin-top: 16px; }
+  .final__sticker { max-width: 440px; margin-top: 24px; rotate: 2deg; }
   .final__actions { gap: 12px; margin-top: 28px; }
   .final__actions .btn { flex: 1 1 220px; }
   .final__actions .btn--tariff { flex-basis: 300px; }
@@ -497,78 +502,68 @@ body[data-theme='about'] .bar__title { color: var(--lilac); }
 @media (min-width: 1024px) and (orientation: landscape), (min-width: 1280px) {
   :root {
     --pad: clamp(40px, 5.556vw, 80px);
-    --side: clamp(360px, 36.1vw, 520px);
-    --gutter: clamp(80px, 9.44vw, 136px);
+    --col-gap: 20px;
   }
 
   .screen { padding-bottom: 32px; }
 
-  .bar { padding-top: 47px; }
+  .bar { padding-top: clamp(20px, 3.8svh, 40px); }
   .bar__title { font-size: clamp(20px, calc(10.15px + .962vw), 24px); }
-  .bar__logo { width: 212px; }
+  .bar__logo { width: clamp(150px, 11.1vw, 170px); }
 
   /* как все устроено: пушистики вокруг карточки, заходят только на ее поля */
   .about__stage {
     --side-room: clamp(112px, 12vw, 160px);
-    --green-w: clamp(104px, 9.5vw, 137px);
+    --green-w: clamp(84px, 7vw, 108px);
     --fire-w: clamp(150px, 15vw, 217px);
     --yellow-w: clamp(88px, 8vw, 115px);
     --photo-w: clamp(112px, 9.72vw, 140px);
-    --blue-w: clamp(170px, 14.44vw, 208px);
+    --blue-w: clamp(150px, min(14.44vw, 21svh), 208px);
     width: min(846px, 100% - 2 * var(--side-room));
     max-width: none;
-    margin: clamp(80px, 9svh, 110px) auto calc(var(--blue-w) * .77 - 48px);
+    margin: clamp(64px, 9svh, 110px) auto calc(var(--blue-w) * .77 - 48px);
   }
-  .about__card { padding: 56px 76px 66px; }
-  .about__title { font-size: clamp(40px, calc(20.3px + 1.923vw), 48px); }
-  .about__card p { margin-top: 24px; font-size: clamp(18px, calc(13.08px + .481vw), 20px); }
+  /* по высоте карточка ужимается вместе с окном, чтобы подпись и кнопка оставались на первом экране */
+  .about__card { padding: clamp(44px, 6svh, 56px) 76px clamp(62px, 7svh, 66px); }
+  .about__title { font-size: clamp(36px, min(calc(20.3px + 1.923vw), 5.4svh), 48px); }
+  .about__card p { margin-top: clamp(14px, 2.6svh, 24px); font-size: clamp(16px, min(calc(13.08px + .481vw), 2.4svh), 20px); }
   .about__card p + p { margin-top: 0; }
-  .about__green { display: block; width: var(--green-w); left: 33px; bottom: calc(100% - 44px); }
+  .about__green { display: block; width: var(--green-w); left: 33px; bottom: calc(100% - 48px); }
   .about__fire { width: var(--fire-w); left: auto; right: calc(100% - 63px); top: 36%; }
   .about__yellow { display: block; width: var(--yellow-w); left: calc(100% + 20px); top: 33px; }
   .about__blue { bottom: auto; top: calc(100% - 48px); }
   .about__photo { width: var(--photo-w); height: var(--photo-w); right: calc(115px - var(--photo-w)); top: calc(100% - 60px); }
-  .about__note { max-width: 470px; margin-top: 14px; font-size: clamp(18px, calc(13.08px + .481vw), 20px); }
+  .about__note { max-width: 470px; margin-top: 14px; font-size: clamp(16px, min(calc(13.08px + .481vw), 2.4svh), 20px); }
   .about .actions { margin: 23px 0 auto; }
   .about { justify-content: flex-start; }
 
-  /* вопрос: текст и варианты | колонка-зазор | иллюстрация или комментарий */
+  /* вопрос: две равные половины по 6 колонок из 12 — текст и варианты | иллюстрация или комментарий.
+     Сетка прижата к шапке в обоих состояниях, чтобы вопрос не прыгал после ответа */
   .quiz__grid, .quiz--answered .quiz__grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) var(--gutter) var(--side);
-    align-items: center;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--col-gap);
+    align-items: start;
     max-width: none;
-    margin: auto 0 0;
-    padding-top: clamp(40px, 6svh, 64px);
+    margin: 0;
+    /* на ноутбуке — вплотную к шапке, на высоких мониторах опускается ближе к центру */
+    padding: clamp(16px, calc(50svh - 350px), 120px) 0 0;
   }
-  .quiz:not(.quiz--answered) .quiz__grid { margin-bottom: auto; padding-bottom: 24px; }
-  .quiz--answered .quiz__grid { align-items: start; }
-  .quiz--answered .quiz__main { padding-top: 30px; }
-  .quiz__main, .quiz--answered .quiz__main { grid-column: 1; grid-row: 1; margin: 0; }
-  .quiz__side, .quiz--answered .quiz__side { grid-column: 3; grid-row: 1; margin: 0; gap: 12px; }
-  .quiz__art { width: 100%; border-radius: 20px; }
-  .quiz__head, .quiz--answered .quiz__head { display: block; }
-  .quiz__mascot--head { display: none; }
-  .quiz__mascot--gutter {
-    display: block;
-    grid-column: 2;
-    grid-row: 1;
-    align-self: start;
-    justify-self: center;
-    width: calc(var(--gutter) - 12px);
-    margin-top: calc(var(--gutter) * -.45);
-  }
-  .quiz__heading, .quiz:not(.quiz--answered) .quiz__heading { max-width: 648px; text-align: left; }
-  .quiz__counter { font-size: clamp(16px, calc(11.08px + .481vw), 18px); }
+  .quiz:not(.quiz--answered) .quiz__grid { padding-bottom: 24px; }
+  .quiz__main, .quiz--answered .quiz__main { grid-column: 1; grid-row: 1; margin: 0; padding: 0; }
+  /* комментарий психолога начинается вровень с вопросом */
+  .quiz__side, .quiz--answered .quiz__side { grid-column: 2; grid-row: 1; margin: 0; gap: 12px; }
+  /* иллюстрация не выше окна: на низких экранах сжимается и прижимается к правому полю */
+  .quiz__art { align-self: flex-end; width: min(100%, calc(100svh - 150px)); border-radius: 20px; }
+  .quiz__heading { text-align: left; }
   .quiz__question { font-size: clamp(26px, calc(11.23px + 1.442vw), 32px); }
   .quiz--long .quiz__question { font-size: clamp(24px, calc(14.15px + .962vw), 28px); }
-  .options, .results { max-width: 522px; }
-  .options { margin-top: 33px; }
-  .option { min-height: 68px; gap: 10px; padding: 10px 20px; font-size: clamp(18px, calc(13.08px + .481vw), 20px); border-radius: 40px; }
-  .results { gap: 10px; margin-top: 38px; }
-  .result { min-height: 68px; column-gap: 24px; padding: 8px 20px; border-radius: 40px; }
+  .options { margin-top: 26px; }
+  .option { min-height: 58px; gap: 10px; padding: 8px 20px; font-size: clamp(18px, calc(13.08px + .481vw), 20px); border-radius: 40px; }
+  .results { gap: 10px; margin-top: 28px; }
+  .result { min-height: 58px; column-gap: 16px; padding: 6px 20px; border-radius: 40px; }
   .result__label { font-size: clamp(18px, calc(13.08px + .481vw), 20px); line-height: 1.2; }
-  .result__pct { font-size: clamp(32px, calc(12.31px + 1.923vw), 40px); }
+  .result__pct { font-size: clamp(24px, calc(10.67px + .926vw), 28px); }
   .comment { padding: 27px 32px 26px 25px; font-size: clamp(16px, calc(11.08px + .481vw), 18px); }
   .comment p + p { margin-top: 10px; }
   .comment__author { margin-top: 14px; }
@@ -583,6 +578,7 @@ body[data-theme='about'] .bar__title { color: var(--lilac); }
     font-size: clamp(16px, calc(11.08px + .481vw), 18px);
   }
   .quiz__next { margin: 32px 0 auto; }
+  .quiz__mascot--next { --w: 76px; }
 
   /* финал: две равные колонки по 6 из 12 */
   .final__grid {
@@ -608,27 +604,27 @@ body[data-theme='about'] .bar__title { color: var(--lilac); }
   .final__mascot { width: clamp(150px, 13.2vw, 190px); align-self: end; margin: calc(clamp(150px, 13.2vw, 190px) * -.32) 10px 0 0; }
   .final__num { font-size: clamp(72px, calc(12.92px + 5.769vw), 96px); line-height: 1; }
   .final__heading { margin-top: 10px; font-size: clamp(28px, calc(8.31px + 1.923vw), 36px); line-height: 1.2; text-wrap: balance; }
-  .final__story { grid-area: story; margin-top: 28px; padding: 30px; font-size: clamp(16px, calc(11.08px + .481vw), 18px); }
+  .final__story { grid-area: story; margin-top: 20px; padding: 30px; font-size: clamp(16px, calc(11.08px + .481vw), 18px); }
   .final__story p + p { margin-top: 0; }
-  .final__actions { grid-area: actions; align-self: start; gap: 11px; margin-top: 33px; }
+  .final__actions { grid-area: actions; align-self: start; gap: 11px; margin-top: 24px; }
   .final__actions .btn { flex: 1 1 200px; }
   .final__actions .btn--tariff { flex-basis: 300px; }
   .final__offer {
     --offer-px: 35px;
-    --fire-w: clamp(130px, 13.47vw, 194px);
+    --fire-w: clamp(120px, 11.8vw, 170px);
     --fire-out: min(42px, calc(var(--pad) - 12px));
     grid-area: offer;
     align-self: stretch;
     margin: 0;
-    padding: 48px var(--offer-px) 62px;
+    padding: 40px var(--offer-px) 48px;
   }
   .final__lead { font-weight: 500; font-size: clamp(22px, calc(7.23px + 1.442vw), 28px); line-height: 1.2; }
-  .final__row { grid-template-areas: 'body fire' 'slogan fire'; align-items: center; column-gap: 0; margin-top: 21px; }
-  .final__body, .final__slogan { font-size: clamp(19px, calc(6.69px + 1.202vw), 24px); line-height: 1.2; }
-  .final__slogan { align-self: start; margin-top: 1.2em; }
-  .final__body { align-self: end; }
+  .final__row { column-gap: 0; margin-top: 21px; }
+  .final__body, .final__slogan { font-size: clamp(17px, calc(5.4px + 1.04vw), 20px); line-height: 1.3; }
+  /* блок тянется на высоту левой колонки: текст опускаем к середине свободного места, стикер — к низу */
+  .final__lead { margin-top: auto; }
   .final__sticker { max-width: 482px; margin-top: auto; padding: 20px 30px; rotate: 2deg; }
-  .final__offer .final__row { margin-bottom: 40px; }
+  .final__offer .final__row { margin-bottom: 28px; }
 }
 
 /* старт на десктопе: текст слева внизу, иллюстрация справа во всю высоту.
@@ -641,9 +637,9 @@ body[data-theme='about'] .bar__title { color: var(--lilac); }
     padding-bottom: 0;
     text-align: left;
   }
-  .start__copy { align-items: flex-start; padding: 50px 0 max(40px, 17svh); }
+  .start__copy { align-items: flex-start; padding: clamp(24px, 5svh, 50px) 0 max(24px, 9svh); }
   .start__logo { width: 257px; margin: 0; }
-  .start__text { align-items: flex-start; max-width: 620px; margin-top: auto; padding: 40px 24px 0 0; }
+  .start__text { align-items: flex-start; max-width: 620px; margin-top: auto; padding: clamp(20px, 5svh, 40px) 24px 0 0; }
   .start__title { font-size: clamp(46px, calc(1.69px + 4.327vw), 64px); }
   .start__subtitle { margin-top: 10px; font-size: clamp(18px, calc(13.08px + .481vw), 20px); }
   .start__body { max-width: 440px; margin-top: 15px; font-size: clamp(18px, calc(13.08px + .481vw), 20px); }

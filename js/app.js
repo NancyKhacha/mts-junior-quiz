@@ -139,7 +139,7 @@ function questionArt(q) {
   return `
     <figure class="quiz__art">
       <img src="${base}-1040.webp" srcset="${base}-640.webp 640w, ${base}-1040.webp 1040w"
-        sizes="(min-width: 1024px) and (orientation: landscape) 36vw, (min-width: 1280px) 36vw, (min-width: 640px) 440px, calc(100vw - 20px)"
+        sizes="(min-width: 1024px) and (orientation: landscape) 45vw, (min-width: 1280px) 45vw, (min-width: 640px) 440px, calc(100vw - 20px)"
         width="1040" height="1040" alt="" fetchpriority="high">
     </figure>`;
 }
@@ -203,22 +203,19 @@ function quizScreen() {
       ${header()}
       <div class="quiz__grid">
         <div class="quiz__main">
-          <div class="quiz__head">
-            <div class="quiz__heading">
-              <p class="quiz__counter">Вопрос ${state.q + 1} из ${QUESTIONS.length}</p>
-              <h1 class="quiz__question" tabindex="-1">${rich(q.situation)} <span class="quiz__prompt">${typo(QUESTION_PROMPT)}</span></h1>
-            </div>
-            ${answered ? mascot(m.name, 'quiz__mascot quiz__mascot--head', { flip: m.flip, eager: true }) : ''}
+          <div class="quiz__heading">
+            <p class="visually-hidden">Вопрос ${state.q + 1} из ${QUESTIONS.length}</p>
+            <h1 class="quiz__question" tabindex="-1">${rich(q.situation)} <span class="quiz__prompt">${typo(QUESTION_PROMPT)}</span></h1>
           </div>
           ${answered ? resultsList(q, state.picked) : optionsList(q)}
         </div>
-        ${answered ? mascot(m.name, 'quiz__mascot quiz__mascot--gutter', { flip: m.flip, eager: true }) : ''}
         <div class="quiz__side">
           ${answered ? comment(q.answers[state.picked]) + promo(q) : questionArt(q)}
         </div>
       </div>
       ${answered ? `
         <div class="actions actions--center quiz__next">
+          ${mascot(m.name, 'quiz__mascot quiz__mascot--next', { flip: m.flip, eager: true })}
           <button class="btn btn--white btn--next" type="button" data-action="next">${last ? 'Посмотреть результат' : 'Дальше'}</button>
         </div>` : ''}
     </div>`;
